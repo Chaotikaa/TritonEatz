@@ -1,5 +1,5 @@
 const URL_CAFE_VENTANAS = 'https://hdh.ucsd.edu/DiningMenus/default.aspx?i=18';
-const URL_CANYON_VISTA = 'https://hdh.ucsd.edu/DiningMenus/default.aspx?i=24;';
+const URL_CANYON_VISTA = 'https://hdh.ucsd.edu/DiningMenus/default.aspx?i=24';
 const URL_64_DEGREES = 'https://hdh.ucsd.edu/DiningMenus/default.aspx?i=64';
 const URL_FOODWORX = 'https://hdh.ucsd.edu/DiningMenus/default.aspx?i=11';
 const URL_OCEANVIEW = 'https://hdh.ucsd.edu/DiningMenus/default.aspx?i=05';

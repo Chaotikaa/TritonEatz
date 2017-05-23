@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="webscrape">
+<html lang="en" ng-app="triton.eatz">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +16,14 @@
       border-color: aliceblue;
       color: black;
     }
+
+    .menu-link:hover {
+      background-color: blue;
+    }
   </style>
   <title>triton.eatz</title>
 </head>
-<body>
+<body  ng-controller="MenuController as mctrl">
 
 <nav style="background-color: aliceblue;"class="navbar navbar-toggleable-xs">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,12 +39,12 @@
           <button class="btn btn-primary dropdown-toggle blend" type="button" data-toggle="dropdown">Dining Halls
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><a href="#">64 Degrees (Revelle)</a></li>
-            <li><a href="#">Cafe Ventanas (Roosevelt)</a></li>
-            <li><a href="#">Canyon Vista (Warren)</a></li>
-            <li><a href="#">Foodworx (Sixth)</a></li>
-            <li><a href="#">OceanView (Marshall)</a></li>
-            <li><a href="#">Pines (Muir)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(0)">64 Degrees (Revelle)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(1)">Cafe Ventanas (Roosevelt)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(2)">Canyon Vista (Warren)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(3)">Foodworx (Sixth)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(4)">OceanView (Marshall)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(5)">Pines (Muir)</a></li>
           </ul>
         </div>
       </li>
@@ -49,13 +53,13 @@
           <button class="btn btn-primary dropdown-toggle blend" type="button" data-toggle="dropdown">Specialty Restaurants
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><a href="#">The Bistro (The Village East)</a></li>
-            <li><a href="#">Club Med (School of Medicine)</a></li>
-            <li><a href="#">Flavors of the World Food Truck</a></li>
-            <li><a href="#">Goody's (Marshall)</a></li>
-            <li><a href="#">Goody's To Go</a></li>
-            <li><a href="#">Roots (Muir)</a></li>
-            <li><a href="#">64 North (Revelle)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(6)">The Bistro (The Village East)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(7)">Club Med (School of Medicine)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(8)">Flavors of the World Food Truck</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(9)">Goody's (Marshall)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(10)">Goody's To Go</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(11)">Roots (Muir)</a></li>
+            <li><a class="menu-link" ng-click="mctrl.getItemsAndUpdate(12)">64 North (Revelle)</a></li>
           </ul>
         </div>
       </li>
@@ -69,7 +73,18 @@
 
 
 
-<div ng-controller="WebScrapeController as wctrl"></div>
+<div class="container">
+<!--<button class="btn btn-primary" ng-click="mctrl.getItemsAndUpdate(1)">Update</button>-->
+<input ng-model="mctrl.query" placeholder="Filter items...">
+<ul>
+  <li ng-repeat="item in mctrl.filtered">
+    {{item.name}}
+  </li>
+</ul>
+
+
+  
+</div>
 
 
 
@@ -84,6 +99,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
 <!--<script src="src/app.js"></script>-->
-<script src="src/webscrape.js"></script>
+<!--<script src="webscrape.js"></script>-->
+<script src="js/tritoneatz.module.js"></script>
+<script src="js/menu.controller.js"></script>
+<script src="js/menu.filter.js"></script>
+<script src="js/menu.service.js"></script>
+
 </body>
 </html>
